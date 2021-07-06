@@ -22,6 +22,7 @@ const Menu = () => {
 		},
 	];
 
+	menu.setAttribute("id", "menu");
 	menuTitle.textContent = "Best Dishes";
 
 	const cardContent = cardList.map((item) => {

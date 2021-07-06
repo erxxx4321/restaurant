@@ -10,6 +10,7 @@ const Form = () => {
 	const formBoard = document.createElement("form");
 	const submitBtn = document.createElement("button");
 
+	form.setAttribute("id", "book");
 	formTitle.textContent = "Book Online";
 
 	let inputList = [

@@ -4,6 +4,7 @@ import twitterIcon from "../images/social3.png";
 
 const Footer = () => {
 	const footer = document.createElement("footer");
+	footer.setAttribute("id", "footer");
 
 	// review
 	const review = document.createElement("div");
@@ -86,12 +87,8 @@ const Footer = () => {
 
 	const inputBoxes = inputList.map((item) => {
 		const inputBox = document.createElement("div");
-		const label = document.createElement("label", {
-			for: item,
-		});
-		const input = document.createElement("input", {
-			id: item,
-		});
+		const label = document.createElement("label");
+		const input = document.createElement("input");
 		switch (item) {
 			case "name":
 				label.textContent = "Your Name";

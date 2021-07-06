@@ -1,5 +1,3 @@
-import ".././index.scss";
-
 const Header = () => {
 	const header = document.createElement("header");
 	const logo = document.createElement("h1");
@@ -9,29 +7,30 @@ const Header = () => {
 
 	let linkText = [
 		{
-			title: "HOME",
+			title: "Home",
 			href: "#home",
 		},
 		{
-			title: "ABOUT",
-			href: "#about",
-		},
-		{
-			title: "LOCATIONS",
+			title: "Menu",
 			href: "#menu",
 		},
 		{
-			title: "CONTACT",
-			href: "#contact",
+			title: "Book",
+			href: "#book",
+		},
+		{
+			title: "Contact",
+			href: "#footer",
 		},
 	];
 
 	const link = linkText.map((item) => {
-		let li = document.createElement("li");
-		li.setAttribute("href", item.href);
-		li.textContent = item.title;
+		let a = document.createElement("a");
 
-		return li;
+		a.setAttribute("href", item.href);
+		a.textContent = item.title;
+
+		return a;
 	});
 
 	links.append(...link);

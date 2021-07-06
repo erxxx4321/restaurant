@@ -1,3 +1,4 @@
+import "./index.scss";
 import Header from "./components/Header";
 import Slider from "./components/Slider";
 import Menu from "./components/Menu";
