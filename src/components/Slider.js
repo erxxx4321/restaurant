@@ -65,6 +65,11 @@ const Slider = () => {
 	slider.append(slide);
 	slider.append(rightBtn);
 
+	// fadeIn
+	window.addEventListener("load", () => {
+		slideText.style.opacity = 1;
+	});
+
 	return slider;
 };
 
