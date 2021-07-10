@@ -32,7 +32,6 @@ const Form = () => {
 		{
 			value: "07-03-2021",
 			type: "date",
-			icon: icon04,
 		},
 		{
 			value: "Number of persons",
@@ -50,15 +49,19 @@ const Form = () => {
 		input.setAttribute("placeholder", item.value);
 		inputIcon.setAttribute("src", item.icon);
 
-		input.addEventListener("click", () =>
-			input.setAttribute("placeholder", "")
-		);
+		if (item.type)
+			input.addEventListener("click", () =>
+				input.setAttribute("placeholder", "")
+			);
 
 		// style
 		inputBox.classList.add("input_box");
 
 		inputBox.append(input);
-		inputBox.append(inputIcon);
+
+		if (item.icon) {
+			inputBox.append(inputIcon);
+		}
 
 		return inputBox;
 	});
