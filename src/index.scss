@@ -46,6 +46,7 @@ header {
 }
 
 .slider {
+	margin: 0 auto;
 	padding: 50px 20px;
 
 	.slide {
@@ -53,6 +54,11 @@ header {
 		justify-content: space-between;
 		align-items: center;
 		margin: 0 100px;
+
+		span {
+			opacity: 0;
+			transition: 1s;
+		}
 
 		img {
 			width: 300px;
@@ -82,6 +88,9 @@ header {
 		font-weight: bold;
 		margin-bottom: 30px;
 		text-transform: uppercase;
+		opacity: 0;
+		padding-top: 30px;
+		transition: 1s;
 	}
 	.menu_cards {
 		display: grid;
@@ -99,6 +108,11 @@ header {
 			}
 		}
 	}
+
+	li {
+		opacity: 0;
+		transition: 1s;
+	}
 }
 
 .form {
@@ -110,6 +124,9 @@ header {
 		font-weight: bold;
 		margin-bottom: 30px;
 		text-transform: uppercase;
+		opacity: 0;
+		padding-top: 30px;
+		transition: 1s;
 	}
 
 	form {
@@ -169,6 +186,8 @@ footer {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	justify-items: center;
+	margin-top: 50px;
+	transition: 1s;
 
 	h3 {
 		font-size: 20px;
@@ -214,6 +233,18 @@ footer .feedback {
 			color: #fff;
 			padding: 10px;
 			border-radius: 5px;
+		}
+	}
+}
+
+@media (max-width: 700px) {
+	.menu {
+		.menu_cards {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+		li {
+			opacity: 0;
 		}
 	}
 }

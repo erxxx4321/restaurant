@@ -32,7 +32,6 @@ const Menu = () => {
 		cardText.textContent = item.label;
 		cardImg.setAttribute("src", item.src);
 		card.classList.add("card");
-
 		card.append(cardImg);
 		card.append(cardText);
 
@@ -43,11 +42,41 @@ const Menu = () => {
 	menu.classList.add("menu");
 	menuCards.classList.add("menu_cards");
 
+	window.addEventListener("load", () => {
+		menuTitle.style.opacity = 1;
+		menuTitle.style.paddingTop = 0;
+
+		cardContent.forEach((item) => {
+			if (window.outerWidth > 700 && isFadeIn(item)) {
+				item.style.opacity = 1;
+			}
+		});
+	});
+
+	// animation
+	window.addEventListener("scroll", () => {
+		cardContent.forEach((item) => {
+			if (isFadeIn(item)) {
+				item.style.opacity = 1;
+			}
+		});
+	});
+
 	menuCards.append(...cardContent);
 	menu.append(menuTitle);
 	menu.append(menuCards);
 
 	return menu;
 };
+
+export function isFadeIn(element) {
+	let elementCard = element.getBoundingClientRect();
+
+	if (elementCard.top - window.innerHeight < -100) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 export default Menu;

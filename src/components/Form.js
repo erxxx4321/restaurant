@@ -3,6 +3,7 @@ import icon02 from "../images/icon2.png";
 import icon03 from "../images/icon3.png";
 import icon04 from "../images/icon4.png";
 import icon05 from "../images/icon5.png";
+import { isFadeIn } from "./Menu";
 
 const Form = () => {
 	const form = document.createElement("div");
@@ -71,6 +72,14 @@ const Form = () => {
 	formBoard.append(submitBtn);
 	form.append(formTitle);
 	form.append(formBoard);
+
+	// animation
+	window.addEventListener("scroll", () => {
+		if (isFadeIn(formTitle)) {
+			formTitle.style.opacity = 1;
+			formTitle.style.paddingTop = 0;
+		}
+	});
 
 	return form;
 };

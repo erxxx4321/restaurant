@@ -1,6 +1,7 @@
 import facebookIcon from "../images/social1.png";
 import youtubeIcon from "../images/social2.png";
 import twitterIcon from "../images/social3.png";
+import { isFadeIn } from "./Menu";
 
 const Footer = () => {
 	const footer = document.createElement("footer");
@@ -118,6 +119,13 @@ const Footer = () => {
 
 	// style
 	feedback.classList.add("feedback");
+
+	// animation
+	window.addEventListener("scroll", () => {
+		if (isFadeIn(footer)) {
+			footer.style.marginTop = 0;
+		}
+	});
 
 	feedbackForm.append(...inputBoxes);
 	feedbackForm.append(feedbackBtn);
