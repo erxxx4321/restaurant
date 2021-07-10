@@ -30,6 +30,7 @@ const Slider = () => {
 
 	let count = 0;
 
+	slider.setAttribute("id", "#home");
 	leftBtn.setAttribute("src", arrowLeft);
 	rightBtn.setAttribute("src", arrowRight);
 	slideText.textContent = sliderList[count].text;
