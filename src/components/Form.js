@@ -1,8 +1,7 @@
-import icon01 from "../images/icon1.png";
-import icon02 from "../images/icon2.png";
-import icon03 from "../images/icon3.png";
-import icon04 from "../images/icon4.png";
-import icon05 from "../images/icon5.png";
+import i_name from "../images/input1.png";
+import i_mail from "../images/input2.png";
+import i_tel from "../images/input3.png";
+import i_number from "../images/input4.png";
 import { isFadeIn } from "./Menu";
 
 const Form = () => {
@@ -18,51 +17,51 @@ const Form = () => {
 		{
 			value: "Your Name",
 			type: "text",
-			icon: icon01,
+			icon: i_name,
 		},
 		{
 			value: "Your E-Mail",
 			type: "mail",
-			icon: icon02,
+			pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$",
+			icon: i_mail,
 		},
 		{
-			value: "Your Phone Number",
+			value: "0000-000-000",
 			type: "tel",
-			icon: icon03,
+			pattern: "[0-9]{4}-[0-9]{3}-[0-9]{3}",
+			icon: i_tel,
 		},
 		{
-			value: "07-03-2021",
+			value: "1990-07-22",
 			type: "date",
 		},
 		{
 			value: "Number of persons",
 			type: "number",
-			icon: icon05,
+			icon: i_number,
 		},
 	];
 
 	const inputBoxes = inputList.map((item) => {
 		const inputBox = document.createElement("div");
 		const input = document.createElement("input");
-		const inputIcon = document.createElement("img");
 
-		input.setAttribute("type", item.type);
 		input.setAttribute("placeholder", item.value);
-		inputIcon.setAttribute("src", item.icon);
-
-		if (item.type)
-			input.addEventListener("click", () =>
-				input.setAttribute("placeholder", "")
-			);
+		input.setAttribute("type", item.type);
+		input.setAttributeNode(document.createAttribute("required"));
+		if (item.pattern) {
+			input.setAttribute("pattern", item.pattern);
+		}
+		if (item.icon) {
+			const inputIcon = document.createElement("img");
+			inputIcon.setAttribute("src", item.icon);
+			inputBox.append(inputIcon);
+		}
 
 		// style
 		inputBox.classList.add("input_box");
 
-		inputBox.append(input);
-
-		if (item.icon) {
-			inputBox.append(inputIcon);
-		}
+		inputBox.prepend(input);
 
 		return inputBox;
 	});
@@ -72,11 +71,6 @@ const Form = () => {
 	// style
 	form.classList.add("form");
 
-	formBoard.append(...inputBoxes);
-	formBoard.append(submitBtn);
-	form.append(formTitle);
-	form.append(formBoard);
-
 	// animation
 	window.addEventListener("scroll", () => {
 		if (isFadeIn(formTitle)) {
@@ -84,6 +78,11 @@ const Form = () => {
 			formTitle.style.paddingTop = 0;
 		}
 	});
+
+	formBoard.append(...inputBoxes);
+	formBoard.append(submitBtn);
+	form.append(formTitle);
+	form.append(formBoard);
 
 	return form;
 };
