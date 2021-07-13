@@ -3,7 +3,7 @@ const Header = () => {
 	const logo = document.createElement("h1");
 	const links = document.createElement("ul");
 
-	logo.textContent = "PASTA";
+	logo.textContent = "Pico";
 
 	let linkText = [
 		{
@@ -32,6 +32,8 @@ const Header = () => {
 
 		return a;
 	});
+
+	header.classList.add("container");
 
 	links.append(...link);
 	header.append(logo);

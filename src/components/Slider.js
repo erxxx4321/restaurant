@@ -56,6 +56,7 @@ const Slider = () => {
 
 	// style
 	slider.classList.add("slider");
+	slider.classList.add("container");
 	slide.classList.add("slide");
 	leftBtn.classList.add("leftBtn");
 	rightBtn.classList.add("rightBtn");

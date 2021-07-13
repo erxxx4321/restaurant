@@ -12,11 +12,11 @@ const Review = () => {
 	const reviewList = [
 		{
 			text: "Lorem ipsum dolor sit amet, consectetur adipisicin,Lorem ipsum dolor sit amet, consectetur adipisicin",
-			reviewer: "Customer1",
+			reviewer: "Amy Chang",
 		},
 		{
 			text: "Lorem ipsum dolor sit amet, consectetur adipisicin",
-			reviewer: "Customer2",
+			reviewer: "Kelly Wang",
 		},
 	];
 
@@ -27,7 +27,7 @@ const Review = () => {
 		const reviewer = document.createElement("p");
 
 		reviewText.textContent = item.text;
-		reviewer.textContent = item.reviewer;
+		reviewer.textContent = `-- ${item.reviewer}`;
 
 		reviewBox.classList.add("review_box");
 

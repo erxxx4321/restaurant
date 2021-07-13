@@ -41,6 +41,7 @@ const Menu = () => {
 
 	// style
 	menu.classList.add("menu");
+	menuCards.classList.add("container");
 	menuCards.classList.add("menu_cards");
 
 	window.addEventListener("load", () => {

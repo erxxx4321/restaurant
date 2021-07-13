@@ -1,14 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	text-decoration: none;
+	background: #000;
+	color: #fff;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+$lightpico: #ca6702;
+
+h1 {
+	font-size: 2.5rem;
+	color: $lightpico;
+	background: none;
+}
+
+h2,
+h3,
+p {
+	background: none;
 }
 
 body {
@@ -23,14 +41,21 @@ button {
 
 #root {
 	position: relative;
+}
+
+.container {
 	max-width: 1000px;
-	margin: 0 auto;
+	margin: 50px auto;
 }
 
 header {
-	margin: 50px auto;
 	display: flex;
 	justify-content: space-between;
+
+	h1 {
+		text-transform: uppercase;
+		font-family: "Finger Paint", cursive;
+	}
 
 	ul {
 		width: 500px;
@@ -39,9 +64,12 @@ header {
 		align-items: center;
 
 		a {
-			color: #000;
 			padding: 10px 20px;
 			text-transform: uppercase;
+		}
+		a:hover {
+			color: $lightpico;
+			transition: 0.5s;
 		}
 	}
 }
@@ -55,6 +83,10 @@ header {
 	opacity: 0;
 	transition: 0.6s;
 	cursor: pointer;
+	background: none;
+}
+.arrow:hover {
+	transform: rotate(180deg);
 }
 
 .slider {
@@ -70,6 +102,7 @@ header {
 		span {
 			opacity: 0;
 			transition: 1s;
+			padding: 0 30px;
 		}
 
 		img {
@@ -81,19 +114,31 @@ header {
 	.leftBtn {
 		cursor: pointer;
 		position: absolute;
-		top: 250px;
+		top: 260px;
+		left: 200px;
+
+		&:hover {
+			transform: scale(1, 1.5);
+			transition: 0.7s;
+		}
 	}
 	.rightBtn {
 		cursor: pointer;
 		position: absolute;
-		top: 250px;
-		right: 0;
+		top: 260px;
+		right: 200px;
+
+		&:hover {
+			transform: scale(1, 1.5);
+			transition: 0.7s;
+		}
 	}
 }
 
 .menu {
 	padding: 50px 0;
 	text-align: center;
+	background: $lightpico;
 
 	h2 {
 		font-size: 35px;
@@ -103,13 +148,17 @@ header {
 		opacity: 0;
 		padding-top: 30px;
 		transition: 1s;
+		color: #000;
 	}
 	.menu_cards {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+		color: #000;
+		background: $lightpico;
 
 		.card {
 			align-items: center;
+			background: $lightpico;
 
 			img {
 				border: 2px solid #000;
@@ -117,6 +166,7 @@ header {
 			}
 			p {
 				text-transform: uppercase;
+				color: #000;
 			}
 		}
 	}
@@ -169,15 +219,17 @@ header {
 		button {
 			grid-column: 3 / span 2;
 			font-size: 20px;
-			background: orange;
+			background: $lightpico;
 			color: #fff;
 			border-radius: 5px;
 			margin: 5px 60px;
 		}
+		button:hover {
+			background: #de7002;
+		}
 
 		.input_box {
-			border: none;
-			background: #000;
+			border: 2px solid #fff;
 			color: #fff;
 			padding: 10px;
 			display: flex;
@@ -223,6 +275,9 @@ footer .review {
 		p:nth-child(1) {
 			padding: 10px;
 		}
+		p:nth-child(2) {
+			color: $lightpico;
+		}
 	}
 }
 
@@ -248,13 +303,18 @@ footer .feedback {
 			input {
 				width: 100%;
 				padding: 8px 10px;
+				border: 1px solid #fff;
+				border-radius: 10px;
 			}
 		}
 		button {
-			background: #000;
+			background: $lightpico;
 			color: #fff;
 			padding: 10px;
 			border-radius: 5px;
+		}
+		button:hover {
+			background: #de7002;
 		}
 	}
 }
