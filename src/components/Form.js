@@ -20,10 +20,9 @@ const Form = () => {
 			icon: i_name,
 		},
 		{
-			value: "Your E-Mail",
-			type: "mail",
-			pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$",
-			icon: i_mail,
+			value: "Number of persons",
+			type: "number",
+			icon: i_number,
 		},
 		{
 			value: "0000-000-000",
@@ -32,13 +31,14 @@ const Form = () => {
 			icon: i_tel,
 		},
 		{
-			value: "1990-07-22",
-			type: "date",
+			value: "Your E-Mail",
+			type: "mail",
+			pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$",
+			icon: i_mail,
 		},
 		{
-			value: "Number of persons",
-			type: "number",
-			icon: i_number,
+			value: "1990-07-22",
+			type: "date",
 		},
 	];
 
