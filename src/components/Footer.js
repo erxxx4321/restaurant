@@ -3,14 +3,12 @@ import youtubeIcon from "../images/social2.png";
 import twitterIcon from "../images/social3.png";
 import { isFadeIn } from "./Menu";
 
-const Footer = () => {
-	const footer = document.createElement("footer");
-	footer.setAttribute("id", "footer");
+const Review = () => {
+	const fragment = document.createElement("div");
+	const title = document.createElement("h3");
+	title.textContent = "Customer Reviews";
+	fragment.append(title);
 
-	// review
-	const review = document.createElement("div");
-	const reviewTitle = document.createElement("h3");
-	reviewTitle.textContent = "Customer Reviews";
 	const reviewList = [
 		{
 			text: "Lorem ipsum dolor sit amet, consectetur adipisicin,Lorem ipsum dolor sit amet, consectetur adipisicin",
@@ -22,6 +20,7 @@ const Footer = () => {
 		},
 	];
 
+	// content
 	const reviewBoxes = reviewList.map((item) => {
 		const reviewBox = document.createElement("div");
 		const reviewText = document.createElement("p");
@@ -38,51 +37,64 @@ const Footer = () => {
 		return reviewBox;
 	});
 
-	// style
-	review.classList.add("review");
+	fragment.classList.add("review");
+	fragment.append(...reviewBoxes);
 
-	review.append(reviewTitle);
-	review.append(...reviewBoxes);
+	return fragment;
+};
 
-	// social
-	const social = document.createElement("div");
-	const socialTitle = document.createElement("h3");
-	socialTitle.textContent = "Socialize";
+const Social = () => {
+	const fragment = document.createElement("div");
+	fragment.classList.add("social");
+	const title = document.createElement("h3");
+	title.textContent = "Socialize";
+	fragment.append(title);
 
+	// content
 	const socialBox = document.createElement("div");
 	let socialList = ["facebook", "youtube", "twitter"];
 
 	const socialIcons = socialList.map((item) => {
+		const socialLink = document.createElement("a");
 		const socialIcon = document.createElement("img");
 
 		switch (item) {
 			case "facebook":
+				socialLink.setAttribute("href", "https://www.facebook.com/");
 				socialIcon.setAttribute("src", facebookIcon);
 				break;
 			case "youtube":
+				socialLink.setAttribute("href", "https://www.youtube.com/");
 				socialIcon.setAttribute("src", youtubeIcon);
 				break;
 			case "twitter":
+				socialLink.setAttribute("href", "https://twitter.com/");
 				socialIcon.setAttribute("src", twitterIcon);
 				break;
 		}
-		return socialIcon;
+
+		socialLink.append(socialIcon);
+		return socialLink;
 	});
 
-	social.classList.add("social");
 	socialBox.classList.add("social_box");
 
 	socialBox.append(...socialIcons);
-	social.append(socialTitle);
-	social.append(socialBox);
+	fragment.append(socialBox);
 
-	// feedback
-	const feedback = document.createElement("div");
-	const feedbackTitle = document.createElement("h3");
+	return fragment;
+};
+
+const FeedBack = () => {
+	const fragment = document.createElement("div");
+	const title = document.createElement("h3");
+	title.textContent = "Send feedback";
+	fragment.classList.add("feedback");
+	fragment.append(title);
+
+	// content
 	const feedbackForm = document.createElement("form");
 	const feedbackBtn = document.createElement("button");
-
-	feedbackTitle.textContent = "Send feedback";
 
 	let inputList = ["name", "phone", "message"];
 
@@ -114,9 +126,6 @@ const Footer = () => {
 	});
 	feedbackBtn.textContent = "Submit";
 
-	// style
-	feedback.classList.add("feedback");
-
 	// animation
 	window.addEventListener("scroll", () => {
 		if (isFadeIn(footer)) {
@@ -126,12 +135,18 @@ const Footer = () => {
 
 	feedbackForm.append(...inputBoxes);
 	feedbackForm.append(feedbackBtn);
-	feedback.append(feedbackTitle);
-	feedback.append(feedbackForm);
+	fragment.append(feedbackForm);
 
-	footer.append(review);
-	footer.append(social);
-	footer.append(feedback);
+	return fragment;
+};
+
+const Footer = () => {
+	const footer = document.createElement("footer");
+	footer.setAttribute("id", "footer");
+
+	footer.append(Review());
+	footer.append(Social());
+	footer.append(FeedBack());
 
 	return footer;
 };
