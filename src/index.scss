@@ -46,6 +46,7 @@ button {
 .container {
 	max-width: 1000px;
 	margin: 50px auto;
+	padding: 0 13px;
 }
 
 header {
@@ -71,6 +72,9 @@ header {
 			color: $lightpico;
 			transition: 0.5s;
 		}
+	}
+	.hamburger {
+		display: none;
 	}
 }
 
@@ -179,8 +183,8 @@ header {
 }
 
 .form {
-	padding: 50px 0;
 	text-align: center;
+	padding-bottom: 50px;
 
 	h2 {
 		font-size: 35px;
@@ -375,9 +379,82 @@ footer .feedback {
 	.container {
 		max-width: 520px;
 	}
-	header ul {
-		display: none;
+
+	header {
+		h1 {
+			position: absolute;
+			top: -15px;
+		}
+
+		// hamburger icon
+		.hamburger {
+			display: block;
+			position: absolute;
+			top: 20px;
+			right: 15px;
+			height: 40px;
+			cursor: pointer;
+		}
+		.line {
+			top: -15px;
+			right: 15px;
+			width: 30px;
+			height: 6px;
+			background: #fcfcfc;
+			position: absolute;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+			transition: 0.3s;
+		}
+		.line::before,
+		.line::after {
+			content: "";
+			position: absolute;
+			width: 30px;
+			height: 6px;
+			background: #fcfcfc;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+			transition: 0.5s;
+		}
+		.line::before {
+			top: -16px;
+		}
+		.line::after {
+			top: 16px;
+		}
+		.hamburger.active_burger .line {
+			background: rgba(0, 0, 0, 0);
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+		}
+		.hamburger.active_burger .line::before {
+			top: 0;
+			transform: rotate(45deg);
+		}
+		.hamburger.active_burger .line::after {
+			top: 0;
+			transform: rotate(135deg);
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+		}
+
+		ul {
+			display: none;
+			width: 100%;
+			position: absolute;
+			top: -30px;
+			height: 300px;
+			transition: all 0.5s;
+
+			a {
+				display: block;
+				width: 300px;
+				transition: all 0.5s;
+			}
+		}
+		.active_links {
+			display: block;
+			transition: 1s;
+		}
 	}
+
 	.slider .slide {
 		flex-direction: column;
 		flex-direction: column-reverse;
