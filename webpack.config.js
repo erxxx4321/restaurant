@@ -31,14 +31,14 @@ module.exports = {
 				use: [
 					devMode
 						? {
-								loader: "style-loader",
-						  }
+							loader: "style-loader",
+						}
 						: {
-								loader: MiniCssExtractPlugin.loader,
-								options: {
-									publicPath: "/",
-								},
-						  },
+							loader: MiniCssExtractPlugin.loader,
+							options: {
+								publicPath: "/",
+							},
+						},
 					{
 						loader: "css-loader",
 						options: {
