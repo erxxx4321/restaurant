@@ -1,0 +1,19 @@
+{
+	"sliderList": [
+		{
+			"title": "slide00 - pasta",
+			"text": "i like pasta i like pasta, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, excepturi.",
+			"src": "../images/slideimg.png"
+		},
+		{
+			"title": "slide01 - burger",
+			"text": "i like burger i like burger, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, excepturi.",
+			"src": "../images/slideimg.png"
+		},
+		{
+			"title": "slide02 - beef",
+			"text": "i like beef i like beef, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, excepturi.",
+			"src": "../images/slideimg.png"
+		}
+	]
+}
