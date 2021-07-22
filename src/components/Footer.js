@@ -144,6 +144,8 @@ const Footer = () => {
 	const footer = document.createElement("footer");
 	footer.setAttribute("id", "footer");
 
+	footer.classList.add("container");
+
 	footer.append(Review());
 	footer.append(Social());
 	footer.append(FeedBack());
