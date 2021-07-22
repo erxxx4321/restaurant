@@ -1,4 +1,3 @@
-import pasta from "../images/slideimg.png";
 import arrowLeft from "../images/arrowleft.png";
 import arrowRight from "../images/arrowRight.png";
 
@@ -9,24 +8,6 @@ const Slider = () => {
 	const slide = document.createElement("div");
 	const slideText = document.createElement("span");
 	const slideImg = document.createElement("img");
-
-	let sliderList = [
-		{
-			title: "slide00 - pasta",
-			text: "i like pasta i like pasta, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, excepturi.",
-			src: pasta,
-		},
-		{
-			title: "slide01 - burger",
-			text: "i like burger i like burger, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, excepturi.",
-			src: pasta,
-		},
-		{
-			title: "slide02 - beef",
-			text: "i like beef i like beef, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, excepturi.",
-			src: pasta,
-		},
-	];
 
 	let count = 0;
 
