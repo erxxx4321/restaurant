@@ -8,6 +8,7 @@ module.exports = {
 	entry: "./src/index.js",
 	output: {
 		filename: "static/js/[name].[hash].js",
+		assetModuleFilename: "images/[hash][ext][query]",
 		path: path.resolve(__dirname, "dist"),
 		clean: true,
 	},
@@ -64,6 +65,10 @@ module.exports = {
 						cacheDirectory: true,
 					},
 				},
+			},
+			{
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				type: "asset/resource",
 			},
 		],
 	},

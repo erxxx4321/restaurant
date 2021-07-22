@@ -1,3 +1,6 @@
+import arrowLeft from "../images/arrowleft.png";
+import arrowRight from "../images/arrowRight.png";
+
 const Slider = () => {
 	const slider = document.createElement("div");
 	const leftBtn = document.createElement("img");
@@ -8,23 +11,11 @@ const Slider = () => {
 
 	let count = 0;
 
-	let sliderList;
-	let requestURL = "http://localhost:3000/sliderList";
-	let request = new XMLHttpRequest();
-	request.open("GET", requestURL, true);
-	request.responseType = "json";
-	request.send();
-
-	request.onload = () => {
-		const data = request.response;
-		sliderList = [...data];
-
-		slider.setAttribute("id", "#home");
-		leftBtn.setAttribute("src", "../images/arrowleft.png");
-		rightBtn.setAttribute("src", "../images/arrowRight.png");
-		slideText.textContent = sliderList[count].text;
-		slideImg.setAttribute("src", sliderList[count].src);
-	};
+	slider.setAttribute("id", "#home");
+	leftBtn.setAttribute("src", arrowLeft);
+	rightBtn.setAttribute("src", arrowRight);
+	slideText.textContent = sliderList[count].text;
+	slideImg.setAttribute("src", sliderList[count].src);
 
 	leftBtn.addEventListener("click", () => {
 		count -= 1;

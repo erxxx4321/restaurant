@@ -1,3 +1,6 @@
+import facebookIcon from "../images/social1.png";
+import youtubeIcon from "../images/social2.png";
+import twitterIcon from "../images/social3.png";
 import { isFadeIn } from "./Menu";
 
 const Review = () => {
@@ -58,15 +61,15 @@ const Social = () => {
 		switch (item) {
 			case "facebook":
 				socialLink.setAttribute("href", "https://www.facebook.com/");
-				socialIcon.setAttribute("src", "../images/social1.png");
+				socialIcon.setAttribute("src", facebookIcon);
 				break;
 			case "youtube":
 				socialLink.setAttribute("href", "https://www.youtube.com/");
-				socialIcon.setAttribute("src", "../images/social2.png");
+				socialIcon.setAttribute("src", youtubeIcon);
 				break;
 			case "twitter":
 				socialLink.setAttribute("href", "https://twitter.com/");
-				socialIcon.setAttribute("src", "../images/social3.png");
+				socialIcon.setAttribute("src", twitterIcon);
 				break;
 		}
 
