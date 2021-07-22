@@ -70,6 +70,7 @@ const Form = () => {
 
 	// style
 	form.classList.add("form");
+	form.classList.add("container");
 
 	// animation
 	window.addEventListener("scroll", () => {
