@@ -1,7 +1,3 @@
-import i_name from "../images/input1.png";
-import i_mail from "../images/input2.png";
-import i_tel from "../images/input3.png";
-import i_number from "../images/input4.png";
 import { isFadeIn } from "./Menu";
 
 const Form = () => {
@@ -13,58 +9,42 @@ const Form = () => {
 	form.setAttribute("id", "book");
 	formTitle.textContent = "Book Online";
 
-	let inputList = [
-		{
-			value: "Your Name",
-			type: "text",
-			icon: i_name,
-		},
-		{
-			value: "Number of persons",
-			type: "number",
-			icon: i_number,
-		},
-		{
-			value: "0000-000-000",
-			type: "tel",
-			pattern: "[0-9]{4}-[0-9]{3}-[0-9]{3}",
-			icon: i_tel,
-		},
-		{
-			value: "Your E-Mail",
-			type: "mail",
-			pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$",
-			icon: i_mail,
-		},
-		{
-			value: "1990-07-22",
-			type: "date",
-		},
-	];
+	let inputBoxes = [];
 
-	const inputBoxes = inputList.map((item) => {
-		const inputBox = document.createElement("div");
-		const input = document.createElement("input");
+	fetch("http://localhost:3000/formList")
+		.then((res) => res.json())
+		.then(showInputBox)
+		.then(() => {
+			formBoard.append(...inputBoxes);
+			formBoard.append(submitBtn);
+		})
+		.catch((error) => console.log("request formList error.", error));
 
-		input.setAttribute("placeholder", item.value);
-		input.setAttribute("type", item.type);
-		input.setAttributeNode(document.createAttribute("required"));
-		if (item.pattern) {
-			input.setAttribute("pattern", item.pattern);
-		}
-		if (item.icon) {
-			const inputIcon = document.createElement("img");
-			inputIcon.setAttribute("src", item.icon);
-			inputBox.append(inputIcon);
-		}
+	function showInputBox(data) {
+		inputBoxes = data.map((item) => {
+			const inputBox = document.createElement("div");
+			const input = document.createElement("input");
 
-		// style
-		inputBox.classList.add("input_box");
+			input.setAttribute("placeholder", item.value);
+			input.setAttribute("type", item.type);
+			input.setAttributeNode(document.createAttribute("required"));
+			if (item.pattern) {
+				input.setAttribute("pattern", item.pattern);
+			}
+			if (item.icon) {
+				const inputIcon = document.createElement("img");
+				inputIcon.setAttribute("src", item.icon);
+				inputBox.append(inputIcon);
+			}
 
-		inputBox.prepend(input);
+			// style
+			inputBox.classList.add("input_box");
 
-		return inputBox;
-	});
+			inputBox.prepend(input);
+
+			return inputBox;
+		});
+	}
 
 	submitBtn.textContent = "Book Now";
 
@@ -80,8 +60,6 @@ const Form = () => {
 		}
 	});
 
-	formBoard.append(...inputBoxes);
-	formBoard.append(submitBtn);
 	form.append(formTitle);
 	form.append(formBoard);
 
