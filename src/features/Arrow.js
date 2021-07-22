@@ -1,8 +1,6 @@
-import pasta from "../images/arrowtop.png";
-
 const Arrow = () => {
 	const arrow = document.createElement("img");
-	arrow.setAttribute("src", pasta);
+	arrow.setAttribute("src", "../images/arrowtop.png");
 	arrow.classList.add("arrow");
 
 	window.addEventListener("scroll", () => {
