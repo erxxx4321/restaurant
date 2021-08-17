@@ -123,13 +123,6 @@ const FeedBack = () => {
 	});
 	feedbackBtn.textContent = "Submit";
 
-	// animation
-	window.addEventListener("scroll", () => {
-		if (isFadeIn(footer)) {
-			footer.style.marginTop = 0;
-		}
-	});
-
 	feedbackForm.append(...inputBoxes);
 	feedbackForm.append(feedbackBtn);
 	fragment.append(feedbackForm);
@@ -142,6 +135,12 @@ const Footer = () => {
 	footer.setAttribute("id", "footer");
 
 	footer.classList.add("container");
+	// animation
+	window.addEventListener("scroll", () => {
+		if (isFadeIn(footer)) {
+			footer.style.marginTop = 0;
+		}
+	});
 
 	footer.append(Review());
 	footer.append(Social());
