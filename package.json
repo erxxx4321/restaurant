@@ -3,10 +3,9 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "webpack serve --open",
+		"dev": "webpack serve --open & json-server --watch db.json",
 		"watch": "webpack --watch",
-		"start": "webpack",
-		"serve": "json-server --watch db.json"
+		"start": "webpack"
 	},
 	"license": "ISC",
 	"devDependencies": {
