@@ -1,6 +1,6 @@
 # RESTAURANT Website
 
-[![demo](demo.png)](https://erxxx4321.github.io/restaurant/) <br><br>
+![demo](demo.png) <br><br>
 
 ## Description
 
